@@ -1,0 +1,5 @@
+Project Name:ecommerce-shop
+Username: lutfor251588_db_user
+Password: lutfor251588
+
+dataBase Connact = mongodb+srv://lutfor251588_db_user:<db_password>@cluster0.0upay7m.mongodb.net/
