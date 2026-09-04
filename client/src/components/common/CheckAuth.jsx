@@ -36,7 +36,7 @@ const CheckAuth = ({isAuthenticated,user,children}) => {
    
 
     return <>{children}</>
-       
+    
     
 };
 
