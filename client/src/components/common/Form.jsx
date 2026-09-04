@@ -1,9 +1,11 @@
 import React from 'react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { Button } from '../ui/button';
 import { SelectContent, SelectTrigger, SelectValue,SelectItem } from '../ui/select';
 
-const CommonForm = ({formControls}) => {
+const CommonForm = ({formControls,formDate,setFormData,onSubmit,buttonText,isBtnDisabled,}) => {
 
     function renderInputsByComponentType(getControlItem){
 
@@ -24,7 +26,7 @@ const CommonForm = ({formControls}) => {
             case 'select':
                 element =( 
                     <select>
-                        
+
                         <SelectTrigger className="w-full">
                             <SelectValue placeholder={getControlItem.placeholder}/>
                         </SelectTrigger>
@@ -44,11 +46,10 @@ const CommonForm = ({formControls}) => {
 
 
             case 'textarea':
-                element = (<Input
-                    name = {getControlItem.name}
-                    placeholder = {getControlItem.placeholder}
-                    id = {getControlItem.name}
-                    type = {getControlItem.type}
+                 element = (<Textarea
+                    name={getControlItem.name}
+                    placeholder={getControlItem.placeholder}
+                    id={getControlItem.id}
                 />)
                 break; 
 
@@ -74,13 +75,14 @@ const CommonForm = ({formControls}) => {
                 <div className='flex flex-col gap-3'>
                     {
                         formControls.map(controlItem => <div className='grid w-full gap-1.5' key={controlItem.name}>
-                            <Label>{controlItem.label}</Label>
+                            <Label className="mb-1">{controlItem.label}</Label>
                             {
                                 renderInputsByComponentType(controlItem)
                             }
                         </div>)
                     }
                 </div>
+                <Button type="submit" className="mt-2 w-full">{buttonText || "Submit"}</Button>
             </form>
         
     );
