@@ -3,3 +3,5 @@ Username: lutfor251588_db_user
 Password: lutfor251588
 
 dataBase Connact = mongodb+srv://lutfor251588_db_user:<db_password>@cluster0.0upay7m.mongodb.net/
+
+mongodb+srv://lutfor251588_db_user:lutfor251588@cluster0.i3qw1hx.mongodb.net/

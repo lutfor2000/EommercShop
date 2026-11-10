@@ -1,12 +1,18 @@
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
+//------Router inport--------
+const authRouter = require('./routes/auth/auth-routes');
+
 
 
 //Create a Database Connection=============================>
-mongoose.connect('mongodb+srv://lutfor251588_db_user:lutfor251588@cluster0.0upay7m.mongodb.net/')
+mongoose.connect("mongodb+srv://lutfor251588_db_user:lutfor251588@cluster0.i3qw1hx.mongodb.net/")
 .then(()=>console.log('MongoDB Database connection'))
 .catch(error => console.log(error))
 
@@ -33,4 +39,6 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+app.use("/api/auth",authRouter);
+
 app.listen(PORT, ()=>console.log(`server is running on port ${PORT}`))
